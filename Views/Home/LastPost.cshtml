@@ -1,0 +1,21 @@
+﻿
+@model IEnumerable<Model.EntityFramework.NEWS>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-4">
+        <div class="aa-latest-blog-single">
+            <figure class="aa-blog-img">
+                <a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })"><img src="~/Image/HinhSanPham/images/News/@item.IMAGE" alt="img"></a>
+                <figcaption class="aa-blog-img-caption">
+                    <span href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })"><i class="fa fa-clock-o"></i>@item.CREATEDAY</span>
+                </figcaption>
+            </figure>
+            <div class="aa-blog-info">
+                <h3 class="aa-blog-title"><a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })">@item.NEW_TITLE</a></h3>
+                <p>@item.DECRIPTION</p>
+                <a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })" class="aa-read-mor-btn">Read more <span class="fa fa-long-arrow-right"></span></a>
+            </div>
+        </div>
+    </div>
+}

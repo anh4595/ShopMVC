@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Model.EntityFramework.GROUPPRODUCT>
+
+@foreach (var item in Model.Where(x => x.PARENTID == null))
+{
+    var child = Model.Where(x => x.PARENTID == item.GROUP_PRODUCT_ID).Count() > 0 ? true : false;
+    if (child)
+    {
+        <li>
+            <a href="@Url.Action("ListSPMetatitle", "Product", new { metatitle=item.MetaTitle })">@item.NAME<span class="caret"></span></a>
+            @Html.Action("ChildMenu", "Home", new { ParentId = @item.GROUP_PRODUCT_ID })
+        </li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("ListSPMetatitle", "Product", new { metatitle=item.MetaTitle })">@item.NAME</a></li>
+    }
+}

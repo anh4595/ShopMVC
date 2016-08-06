@@ -1,0 +1,8 @@
+﻿@model List<Model.EntityFramework.NEWS>
+<div class="tag-cloud">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("ListTag","News",new { id= item.NEW_ID, tagname=item.TAG})">@item.TAG</a>
+    }
+
+</div>

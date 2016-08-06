@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model ShopOnline5K.Areas.Admin.Models.LoginModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Login | Đăng nhập trang quản trị SideShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta name="keywords" content="User Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+    <link href="~/Assets/Admin/Login/css/style.css" rel='stylesheet' type='text/css' />
+    <!--web-fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--/web-fonts-->
+</head>
+<body>
+    <!--User-Login-->
+    <h1>Dashboard Login</h1>
+    <div class="avtar">
+        <img src="~/Assets/Admin/Login/images/avtar.png" />
+    </div>
+    <div class="login-form">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            @Html.ValidationSummary(false, "", "error")
+            <div class="form-text">
+                @Html.TextBoxFor(model => model.username, new { @class = "text", @type = "text", @placeholder = "USERNAME", @autofocus = "autofocus" })
+                @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Password" })
+            </div>
+            <input type="submit" value="GO">
+        }
+    </div>
+    <!--/User-Login-->
+    <!--start-copyright-->
+    <div class="copy-right">
+        <p>Design by <a href="#">SidaShop</a></p>
+    </div>
+    <!--//end-copyright-->
+</body>
+</html>

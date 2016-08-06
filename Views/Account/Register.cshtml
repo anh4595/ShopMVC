@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ShopOnline5K.Models.RegisterModel
+
+<!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+    <img src="~/Image/Slide/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+        <div class="container">
+            <div class="aa-catg-head-banner-content">
+                <h2>Account Page</h2>
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("index","Home")">Home</a></li>
+                    <li class="active">Register</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / catg header banner section -->
+<!-- Cart view section -->
+<section id="aa-myaccount">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-myaccount-area">
+                    <div class="row">
+                        <div class="col-md-6" style="width:100%">
+                            <div class="aa-myaccount-register">
+                                <h4>ĐĂNG KÝ THÀNH VIÊN</h4>
+                                @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                                {
+                                    <div action="" class="aa-login-form">
+                                        <label for="">Name<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.name, new { @type = "text", @placeholder = "Họ tên khách hàng" })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Address<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.adress, new { @type = "text", @placeholder = "Địa chỉ khách hàng" })
+                                        @Html.ValidationMessageFor(model => model.adress, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Phone<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.phone, new { @type = "text", @placeholder = "Số điện thoại khách hàng" })
+                                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Email<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.email, new { @type = "text", @placeholder = "Email liên hệ" })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Username<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.username, new { @type = "text", @placeholder = "Tài khoản đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Password<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Mật khẩu đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Re-Password<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.repassword, new { @type = "password", @placeholder = "Nhập lại mật khẩu đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.repassword, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <button type="submit" class="aa-browse-btn">Đăng ký</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section -->

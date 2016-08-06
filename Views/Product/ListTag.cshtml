@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Model.EntityFramework.GROUPPRODUCT>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("ListSPMetatitle", "Product", new { metatitle=item.MetaTitle })">@item.MetaTitle</a>
+}

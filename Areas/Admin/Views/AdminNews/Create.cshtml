@@ -1,0 +1,104 @@
+﻿@model Model.EntityFramework.NEWS
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script>
+        $('#btnSelectImage').on('click', function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url.slice(url.lastIndexOf("/") + 1));
+            };
+            finder.popup();
+        })
+
+        var editor = CKEDITOR.replace("txtContent", {
+            customConfig:'~/Assets/Admin/SbAdmin/js/Plugin/ckeditor/config.js',
+        })
+    </script>
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">THÊM MỚI TIN TỨC</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    THÔNG TIN CHI TIẾT
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="width:70%; margin-left:30px">
+                        @using (Html.BeginForm("Create", "AdminNews", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Title</span>
+                                    @Html.TextBoxFor(model => model.NEW_TITLE, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Nhập tiêu đề tin", @type = "text" })
+                                    @Html.ValidationMessageFor(model => model.NEW_TITLE, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Detai</span>
+                                    @Html.TextAreaFor(model => model.DETAIL, new { @class = "form-control", @placeholder = "Nhập nội dung tin", @type = "text", @id = "txtContent" })
+                                    @Html.ValidationMessageFor(model => model.DETAIL, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Image</span>
+                                    @Html.TextBoxFor(model => model.IMAGE, new { @class = "form-control", @id = "txtImage", @placeholder = "Link hình ảnh", @type = "text" })
+                                    <button type="button" class="btn btn-outline btn-info" id="btnSelectImage">Upload</button>
+                                    @Html.ValidationMessageFor(model => model.IMAGE, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">CreateBy</span>
+                                    @Html.TextBoxFor(model => model.CREATEBY, new { @class = "form-control", @placeholder = "Người đăng tin", @type = "text" })
+                                    @Html.ValidationMessageFor(model => model.CREATEBY, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Tag</span>
+                                    @Html.TextBoxFor(model => model.TAG, new { @class = "form-control", @placeholder = "Nhập thẻ tag", @type = "text" })
+                                    @Html.ValidationMessageFor(model => model.TAG, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Decription</span>
+                                    @Html.TextAreaFor(model => model.DECRIPTION, new { @class = "form-control", @placeholder = "Nhập mô tả nội dung tin", @type = "text" })
+                                    @Html.ValidationMessageFor(model => model.DECRIPTION, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->

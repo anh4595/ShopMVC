@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var session = (ShopOnline5K.Common.UserLogin)Session[ShopOnline5K.Common.CommonContants.USER_SESSION];
+    Decimal tongtien = 0;
+}
+
+@foreach (var item1 in Model)
+{
+    var thanhtien = (@item1.product.DISCOUNT_PRICE.GetValueOrDefault(0) * @item1.soluong);
+    tongtien += (Decimal)thanhtien;
+}
+
+@model List<ShopOnline5K.Models.CartItem>
+
+<!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+    <img src="~/Image/Slide/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+        <div class="container">
+            <div class="aa-catg-head-banner-content">
+                <h2>Checkout Page</h2>
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action(" index","home")">Home</a></li>
+                    <li class="active">Checkout</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / catg header banner section -->
+<!-- Cart view section -->
+<section id="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkout-area">
+                    @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                    {
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkout-left">
+                                    <div class="panel-group" id="accordion">
+                                        <!-- Shipping Address -->
+                                        <div class="panel panel-default aa-checkout-billaddress">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                                        THÔNG TIN ĐƠN ĐẶT HÀNG
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="aa-checkout-single-bill">
+                                                                @Html.TextBoxFor(model => session.userName, new { @type = "text", @placeholder = "Họ tên khách hàng/người nhận hàng", @autofocus = "autofocus" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="aa-checkout-single-bill">
+                                                                @Html.TextBoxFor(model => session.email, new { @type = "email", @placeholder = "Địa chỉ Email" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="aa-checkout-single-bill">
+                                                                @Html.TextBoxFor(model => session.phone, new { @type = "tel", @placeholder = "Số điện thoại" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="aa-checkout-single-bill">
+                                                                @Html.TextAreaFor(model => session.address, new { @type = "text", @placeholder = "Địa chỉ giao hàng", @cols = "8", @rows = "3" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="margin-left:2.5px">
+                                                        <input type="submit" value="Đặt hàng" class="aa-browse-btn">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="checkout-right">
+                                    <h4>Danh sách sản phẩm đặt hàng</h4>
+                                    <div class="aa-order-summary-area">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sản phẩm</th>
+                                                    <th>Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                <tr>
+                                                    <td>@item.product.NAME <strong> x  @item.soluong</strong></td>
+                                                    <td>$@item.product.DISCOUNT_PRICE</td>
+                                                </tr>
+                                                }
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Tổng tiền</th>
+                                                    <td style="color:red">$@tongtien</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <h4>Hình thức thanh toán</h4>
+                                    <div class="aa-payment-method">
+                                        <label for="cashdelivery"><input type="radio" id="cashdelivery" name="optionsRadios"> Thanh toán khi nhận hàng </label>
+                                        <label for="paypal"><input type="radio" id="paypal" name="optionsRadios" checked> Thanh toán trực tuyến </label>
+                                        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section -->

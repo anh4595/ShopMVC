@@ -1,0 +1,102 @@
+﻿@model Model.EntityFramework.ADMIN
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">THÊM MỚI QUẢN TRỊ VIÊN</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    THÔNG TIN ĐĂNG KÝ
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                                <div class="col-lg-6" style="width:45%;margin-left:30px">
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">FullName</span>
+                                        @Html.TextBoxFor(model => model.NAME, new { @class = "form-control", @autofocus = "autofocus", @type = "text", @placeholder = "Nhập họ tên quản trị viên" })
+                                        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Address</span>
+                                        @Html.TextBoxFor(model => model.ADDRESS, new { @class = "form-control", @type = "text", @placeholder = "Nhập địa chỉ quản trị viên" })
+                                        @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Phone</span>
+                                        @Html.TextBoxFor(model => model.PHONE, new { @class = "form-control", @type = "text", @placeholder = "Nhập số điện thoại quản trị viên" })
+                                        @Html.ValidationMessageFor(model => model.PHONE, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Email</span>
+                                        @Html.TextBoxFor(model => model.EMAIL, new { @class = "form-control", @type = "text", @placeholder = "Nhập email quản trị viên" })
+                                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6" style="width:45%;margin-left:30px">
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Username</span>
+                                        @Html.TextBoxFor(model => model.USERNAME, new { @class = "form-control", @type = "text", @placeholder = "Nhập tên tài khoản đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.USERNAME, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Password</span>
+                                        @Html.PasswordFor(model => model.PASSWORD, new { @class = "form-control", @placeholder = "Nhập mật khẩu đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label >
+                                                @Html.CheckBoxFor(model => model.STATUS, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
+                                                Status
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Create" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->

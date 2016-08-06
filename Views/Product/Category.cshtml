@@ -1,0 +1,11 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.GROUPPRODUCT>
+
+@foreach(var item in Model)
+{ 
+    <li><a href="/sanpham/@item.MetaTitle-@item.GROUP_PRODUCT_ID">@item.NAME</a></li>
+}

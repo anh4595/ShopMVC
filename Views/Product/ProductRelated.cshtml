@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.PRODUCT>
+
+@foreach (var item in Model)
+{
+    <li>
+        <figure>
+            <a class="aa-product-img" href="@Url.Action("ProductDetail", "Product", new { id = item.PRODUCT_ID })"><img style="width:250px;height:300px" src="~/Image/HinhSanPham/images/Product/@item.IMAGE_LINK" alt="@item.NAME"></a>
+            <a class="aa-add-card-btn" href="/add-to-cart?productId=@item.PRODUCT_ID&quantity=1"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+            <figcaption>
+                <h4 class="aa-product-title"><a href="@Url.Action("ProductDetail", "Product", new { id = item.PRODUCT_ID })">@item.NAME</a></h4>
+                <span class="aa-product-price">$@item.DISCOUNT_PRICE</span><span class="aa-product-price"><del>$@item.PRICE</del></span>
+            </figcaption>
+        </figure>
+        <div class="aa-product-hvr-content">
+            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+            <a href="@Url.Action("ProductDetail", "Product", new { id = item.PRODUCT_ID })" data-toggle2="tooltip" data-placement="top"><span class="fa fa-search"></span></a>
+        </div>
+        <!-- product badge -->
+        <span class="aa-badge aa-hot" href="#">HOT!</span>
+    </li>
+}

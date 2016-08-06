@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ShopOnline5K.Models.LoginModel
+
+<!-- Cart view section -->
+<section id="aa-myaccount">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-myaccount-area">
+                    <div class="row">
+                        <div class="col-md-6" style="width:100%">
+                            <div class="aa-myaccount-login">
+                                <h4>ĐĂNG NHẬP WEBSITE</h4>
+                                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                                {
+                                    <div action="" class="aa-login-form">
+                                        <label for="">Username<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.username, new { @type = "text", @placeholder = "Tài khoản đăng nhập", @autofocus = "autofocus" })
+                                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <label for="">Password<span>*</span></label><br />
+                                        @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Mật khẩu đăng nhập" })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "alert alert-danger" })
+                                        <br />
+                                        <button type="submit" class="aa-browse-btn">Đăng nhập</button>
+                                        <label class="rememberme" for="rememberme">
+                                            @Html.CheckBoxFor(model => model.rememberme, new { @type = "checkbox", @id = "rememberme" })Remember me
+                                        </label>
+                                        <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                                        <p class="aa-lost-password">Bạn chưa có tài khoản?<a href="@Url.Action("Register","Account")"> ĐĂNG KÝ NGAY!</a></p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section --

@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.PRODUCT>
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("ProductDetail", "Product", new { id = item.PRODUCT_ID })" class="aa-cartbox-img"><img alt="img" src="~/Image/HinhSanPham/images/Product/@item.IMAGE_LINK"></a>
+        <div class="aa-cartbox-info">
+            <h4><a href="@Url.Action("ProductDetail", "Product", new { id = item.PRODUCT_ID })">@item.NAME</a></h4>
+            <p>1 x $@item.DISCOUNT_PRICE</p>
+    </div>
+</li>
+}

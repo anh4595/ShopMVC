@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.GROUPPRODUCT>
+
+@foreach (var item in Model)
+{
+    <div class="aa-single-promo-right">
+        <div class="aa-promo-banner">
+            <img src="~/Image/HinhSanPham/images/GroupProduct/@item.IMAGES" alt="img">
+            <div class="aa-prom-content">
+                <h4><a href="/sanpham/@item.MetaTitle-@item.GROUP_PRODUCT_ID">@item.NAME</a></h4>
+            </div>
+        </div>
+    </div>
+}

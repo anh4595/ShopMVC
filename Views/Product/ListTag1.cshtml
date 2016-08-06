@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Model.EntityFramework.TAG>
+
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("ListSPMetatitle1", "Product", new { metatitle=item.NAME_TAG })">@item.NAME_TAG</a>
+}

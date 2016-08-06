@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.GROUPPRODUCT>
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("", "", new {id=item.GROUP_PRODUCT_ID})" data-toggle="tab" id="@item.GROUP_PRODUCT_ID">@item.NAME</a></li>
+}

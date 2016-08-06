@@ -1,0 +1,69 @@
+﻿ <!-- start header top  -->
+<div class="aa-header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-header-top-area">
+                    <!-- start header top left -->
+                    <div class="aa-header-top-left">
+                        <!-- start cellphone -->
+                        <div class="cellphone hidden-xs">
+                            <p><span class="fa fa-phone"></span>+84-166-822-0682</p>
+                        </div>
+                        <!-- / cellphone -->
+                    </div>
+                    <!-- / header top left -->
+                    <div class="aa-header-top-right">
+                        @{
+                            var session = (ShopOnline5K.Common.UserLogin)Session[ShopOnline5K.Common.CommonContants.USER_SESSION];
+                        }
+                        @if (session == null)
+                        {
+                            <ul class="aa-head-top-nav-right">
+                                <li>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <a href="#">Tài khoản</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <a href="@Url.Action("index","Cart")">Giỏ hàng</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                    <a href="@Url.Action("Payment","Cart")">Thanh toán</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <a href="@Url.Action("Login","Account")" data-toggle="modal">Đăng nhập</a>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="aa-head-top-nav-right">
+                                <li>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <a href="#">Xin chào: @session.userName</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <a href="@Url.Action("index","Cart")">Giỏ hàng</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                    <a href="checkout.html">Thanh toán</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <a href="@Url.Action("Exit","Account")" data-toggle="modal">Thoát</a>
+                                </li>
+                            </ul>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / header top  -->

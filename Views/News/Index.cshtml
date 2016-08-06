@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+    <img src="~/Image/Slide/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+        <div class="container">
+            <div class="aa-catg-head-banner-content">
+                <h2>Blog Archive</h2>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Tin Tức</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / catg header banner section -->
+<!-- Blog Archive -->
+<section id="aa-blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-blog-archive-area aa-blog-archive-2">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="aa-blog-content">
+                                <div class="row">
+                                    @{Html.RenderAction("Thongtin", "News");}
+                                </div>
+                            </div>
+                            <!-- Blog Pagination -->
+                            <div class="aa-blog-archive-pagination">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li>
+                                            <a aria-label="Previous" href="#">
+                                                <span aria-hidden="true">«</span>
+                                            </a>
+                                        </li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a aria-label="Next" href="#">
+                                                <span aria-hidden="true">»</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <aside class="aa-blog-sidebar">
+                                <div class="aa-sidebar-widget">
+                                    <h3>Tags</h3>
+                                    @{Html.RenderAction("NewNews2", "News");}
+                                </div>
+                                <div class="aa-sidebar-widget">
+                                    <h3>Tin Tức Mới</h3>
+                                    <div class="aa-recently-views">
+                                        <ul>
+                                            @{Html.RenderAction("NewNews1", "News");}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Blog Archive -->
+

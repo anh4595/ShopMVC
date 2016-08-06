@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Decimal tongtien = 0;
+    var productid = 0;
+    var soluong = 0;
+}
+
+@foreach (var item1 in Model)
+{
+    var thanhtien = (@item1.product.DISCOUNT_PRICE.GetValueOrDefault(0) * @item1.soluong);
+    tongtien += (Decimal)thanhtien;
+    productid = @item1.product.PRODUCT_ID;
+    soluong = @item1.soluong;
+}
+
+@model List<ShopOnline5K.Models.CartItem>
+
+<script src="~/Assets/controller/cartController.js"></script>
+
+<!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+    <img src="~/Image/Slide/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+        <div class="container">
+            <div class="aa-catg-head-banner-content">
+                <h2>Cart Page</h2>
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("index","Home")">Home</a></li>
+                    <li class="active">Cart</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / catg header banner section -->
+<!-- Cart view section -->
+<section id="cart-view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-view-area">
+                    @if (@Model.Count > 0)
+                    {
+                        <div class="cart-view-table">
+                            <form action="">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Xóa khỏi giỏ hàng</th>
+                                                <th>Hình ảnh</th>
+                                                <th>Sản phẩm</th>
+                                                <th>Giá tiền</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td><a class="remove" href="@Url.Action("Delete", "Cart", new { productId=item.product.PRODUCT_ID }) "><fa class=" fa fa-close"></fa></a></td>
+                                                    <td><a href="#"><img src="~/Image/HinhSanPham/images/Product/@item.product.IMAGE_LINK" alt="img"></a></td>
+                                                    <td><a class="aa-cart-title" href="#">@item.product.NAME</a></td>
+                                                    @* Nếu không có thì nó mặc định giá bằng 0 *@
+                                                    <td>$@item.product.DISCOUNT_PRICE.GetValueOrDefault(0).ToString("N0")</td>
+                                                    <td><input class="aa-cart-quantity" type="number" value="@item.soluong"></td>
+                                                    <td>$@((item.product.DISCOUNT_PRICE.GetValueOrDefault(0) * item.soluong).ToString("N0"))</td>
+                                                </tr>
+                                            }
+
+                                            <tr>
+                                                <td colspan="5" style="text-align:right;font-weight:bold; font-size:20px">Tổng tiền</td>
+                                                <td colspan="5" style="text-align:right;font-size:20px;font-weight:bold;color:red">$@tongtien</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6" class="aa-cart-view-bottom" style="overflow:hidden">
+                                                    <div style="float:left;margin-left:-40px">
+                                                        <button id="btnUpdate" class="aa-cart-view-btn">Cập nhật</button>
+                                                    </div>
+                                                    <div style="float:left">
+                                                        <a href="@Url.Action("DeleteAll", "Cart")" class="aa-cart-view-btn">Xóa giỏ hàng</a>
+                                                    </div>
+                                                    <div style="float:left">
+                                                        <a href="@Url.Action("index","Product")" class="aa-cart-view-btn">Tiếp tục mua hàng</a>
+                                                    </div>
+                                                    <div class="aa-cart-coupon" style="float:right">
+                                                        <a href="@Url.Action("Payment","Cart")" class="aa-cart-view-btn">Thanh toán</a>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </form>
+                            <!-- Cart Total view -->
+
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section -->

@@ -1,0 +1,44 @@
+﻿@model List<ShopOnline5K.Models.CartItem>                      
+      <!-- cart box -->
+@{
+    Decimal tongtien = 0;
+}
+
+@foreach (var item1 in Model)
+{
+    var thanhtien = (@item1.product.DISCOUNT_PRICE.GetValueOrDefault(0) * @item1.soluong);
+    tongtien += (Decimal)thanhtien;
+}
+
+<div class="aa-cartbox">
+    <a class="aa-cart-link" href="@Url.Action("index","Cart")">
+        <span class="fa fa-shopping-basket"></span>
+        <span class="aa-cart-title">GIỎ HÀNG</span>
+        <span class="aa-cart-notify">@Model.Count </span>
+    </a>
+    <div class="aa-cartbox-summary">
+        <ul>
+            @foreach(var item in Model)
+            {
+            <li>
+                <a class="aa-cartbox-img" href="#"><img src="~/Image/HinhSanPham/images/Product/@item.product.IMAGE_LINK" alt="img"></a>
+                <div class="aa-cartbox-info">
+                    <h4><a href="#">@item.product.NAME</a></h4>
+                    <p>@item.soluong x @item.product.DISCOUNT_PRICE</p>
+                </div>
+                <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+            </li>
+            }
+            <li>
+                <span class="aa-cartbox-total-title">
+                    Tổng tiền
+                </span>
+                <span class="aa-cartbox-total-price">
+                    $@tongtien
+                </span>
+            </li>
+        </ul>
+        <a class="aa-cartbox-checkout aa-primary-btn" href="@Url.Action("Payment","Cart")">Thanh toán</a>
+    </div>
+</div>
+<!-- / cart box -->
