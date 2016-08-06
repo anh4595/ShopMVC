@@ -2275,6 +2275,12 @@
     <Content Include="Areas\Admin\Views\AdminSlide\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminSlide\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminSlide\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminFooter\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminFooter\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminFooter\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAbout\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAbout\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAbout\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2345,11 +2351,10 @@
     <Content Include="Views\Product\ListSPMetatitle1.cshtml" />
     <Content Include="Views\Product\Top3Chay.cshtml" />
     <Content Include="Views\Home\Slide.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\AdminAbout\" />
-    <Folder Include="Areas\Admin\Views\AdminFooter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

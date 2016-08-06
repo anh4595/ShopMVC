@@ -23,6 +23,13 @@ namespace ShopOnline5K.Controllers
             var slide_Dao = new SlideDao().ListAll1();
             return PartialView(slide_Dao);
         }
+
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var company_Dao = new CompanyDao().ListAll();
+            return PartialView(company_Dao);
+        }
         public ActionResult Group()
         {
             var group_Dao = new GroupProductDao();

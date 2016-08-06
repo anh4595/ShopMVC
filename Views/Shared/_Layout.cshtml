@@ -55,7 +55,7 @@
     <!-- END SCROLL TOP BUTTON -->
     <!-- Start header section -->
     <header id="aa-header">
-       @{Html.RenderAction("TopMenu", "Home");}
+        @{Html.RenderAction("TopMenu", "Home");}
         <!-- start header bottom  -->
         <div class="aa-header-bottom">
             <div class="container">
@@ -73,7 +73,7 @@
                                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
                             </div>
                             <!-- / logo  -->
-                             @{Html.RenderAction("HeaderCar", "Home");}
+                            @{Html.RenderAction("HeaderCar", "Home");}
                             <!-- search box -->
                             <div class="aa-search-box">
                                 <form action="">
@@ -143,11 +143,7 @@
                                     <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">
                                             <h3>LIÊN HỆ</h3>
-                                            <address>
-                                                <p> 250A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.Hồ Chí Minh</p>
-                                                <p><span class="fa fa-phone"></span>+84 166-822-0682</p>
-                                                <p><span class="fa fa-envelope"></span>sidashop@gmail.com</p>
-                                            </address>
+                                            @Html.Action("Footer", "Home")
                                             <div class="aa-footer-social">
                                                 <a href="#"><span class="fa fa-facebook"></span></a>
                                                 <a href="#"><span class="fa fa-twitter"></span></a>
@@ -201,7 +197,6 @@
         </div>
     </footer>
     <!-- / footer -->
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

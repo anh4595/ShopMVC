@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.COMPANY>
+
+@foreach (var item in Model)
+{
+    <address>
+        <p>@item.ADDRESS</p>
+        <p><span class="fa fa-phone"></span>+84 @item.PHONE</p>
+        <p><span class="fa fa-envelope"></span>@item.EMAIL</p>
+    </address>
+}
