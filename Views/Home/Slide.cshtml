@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.SLIDE>
+
+@foreach (var item in Model)
+{
+    <li>
+        <div class="seq-model">
+            <img data-seq src="~/Image/HinhSanPham/images/Slide/@item.IMAGE" alt="img" />
+        </div>
+    </li>
+}

@@ -169,12 +169,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminCustomerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminFooterController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminGroupProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminNewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrderDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSystemController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -2269,6 +2272,9 @@
     <Content Include="Areas\Admin\Views\AdminOrder\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrderDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrderDetail\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSlide\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSlide\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSlide\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2338,9 +2344,12 @@
     <Content Include="Views\Product\ListTag1.cshtml" />
     <Content Include="Views\Product\ListSPMetatitle1.cshtml" />
     <Content Include="Views\Product\Top3Chay.cshtml" />
+    <Content Include="Views\Home\Slide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\AdminAbout\" />
+    <Folder Include="Areas\Admin\Views\AdminFooter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

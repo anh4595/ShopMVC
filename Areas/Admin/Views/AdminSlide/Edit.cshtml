@@ -1,0 +1,84 @@
+﻿@model Model.EntityFramework.SLIDE
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script>
+        var txt1, txt2, txt3 = "";
+        $('#btnSelectImage').on('click', function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url.slice(url.lastIndexOf("/") + 1));
+            };
+            finder.popup();
+        })
+    </script>
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">SỬA THÔNG TIN SLIDE</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    THÔNG TIN CHI TIẾT
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="width:70%; margin-left:30px">
+                        @using (Html.BeginForm("Edit","AdminSlide",FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.ID)
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Name</span>
+                                    @Html.TextBoxFor(model => model.NAME, new { @class = "form-control", @autofocus = "autofocus", @type = "text", @placeholder = "Nhập tên sản phẩm" })
+                                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Image</span>
+                                    @Html.TextBoxFor(model => model.IMAGE, new { @class = "form-control", @id = "txtImage", @placeholder = "Ảnh đại diện sản phẩm" })
+                                    <button type="button" class="btn btn-outline btn-info" id="btnSelectImage">Upload</button>
+                                    @Html.ValidationMessageFor(model => model.IMAGE, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(model => model.STATUS, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
+                                            Status
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Save" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->

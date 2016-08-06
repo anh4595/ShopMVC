@@ -17,6 +17,12 @@ namespace ShopOnline5K.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public ActionResult Slide()
+        {
+            var slide_Dao = new SlideDao().ListAll1();
+            return PartialView(slide_Dao);
+        }
         public ActionResult Group()
         {
             var group_Dao = new GroupProductDao();
