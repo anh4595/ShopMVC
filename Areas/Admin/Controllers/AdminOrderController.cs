@@ -42,7 +42,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
         public ActionResult ChangeStatus(int id)
         {
             var result = new ProductDao().ChangeStatus(id);
-            return RedirectToAction("Index", "AdminProduct");
+            return RedirectToAction("Index", "AdminOrder");
         }
         public ActionResult Delete(int id)
         {

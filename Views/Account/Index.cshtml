@@ -33,6 +33,7 @@
                                 <h4>ĐĂNG NHẬP WEBSITE</h4>
                                 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                                 {
+                                    @Html.ValidationSummary(false,"","error")
                                     <div action="" class="aa-login-form">
                                         <label for="">Username<span>*</span></label><br />
                                         @Html.TextBoxFor(model => model.username, new { @type = "text", @placeholder = "Tài khoản đăng nhập", @autofocus = "autofocus" })
@@ -46,7 +47,6 @@
                                         <label class="rememberme" for="rememberme">
                                             @Html.CheckBoxFor(model => model.rememberme, new { @type = "checkbox", @id = "rememberme" })Remember me
                                         </label>
-                                        <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
                                         <p class="aa-lost-password">Bạn chưa có tài khoản?<a href="@Url.Action("Register","Account")"> ĐĂNG KÝ NGAY!</a></p>
                                     </div>
                                 }

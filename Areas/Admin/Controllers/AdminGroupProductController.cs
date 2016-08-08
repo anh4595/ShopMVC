@@ -40,7 +40,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
                     ModelState.AddModelError("","Thêm mới thất bại");
                 }
             }
-            return View("Index");
+            return View(groupproduct);
         }
         public ActionResult Edit(int id)
         {
@@ -63,7 +63,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Sửa/Cập nhật thông tin thất bại");
                 }
             }
-            return View("Index");
+            return View(groupproduct);
         }
 
 

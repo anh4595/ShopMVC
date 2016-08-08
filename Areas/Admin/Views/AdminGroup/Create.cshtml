@@ -1,0 +1,55 @@
+﻿@model Model.EntityFramework.ADMINGROUP
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">THÊM MỚI NHÓM PHÂN QUYỀN</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    THÔNG TIN CHI TIẾT
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="width:70%; margin-left:30px">
+                        @using (Html.BeginForm("Create","AdminGroup",FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">GroupID</span>
+                                    @Html.TextBoxFor(model => model.GROUP_ID, new { @class = "form-control", @autofocus = "autofocus", @type = "text", @placeholder = "Nhập nhóm phân quyền" })
+                                    @Html.ValidationMessageFor(model => model.GROUP_ID, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">Name</span>
+                                    @Html.TextBoxFor(model => model.NAME, new { @class = "form-control", @type = "text", @placeholder = "Nhập mô tả tên nhóm phân quyền" })
+                                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->

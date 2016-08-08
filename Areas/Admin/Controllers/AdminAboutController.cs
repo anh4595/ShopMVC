@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline5K.Areas.Admin.Controllers
 {
-    public class AdminAboutController : Controller
+    public class AdminAboutController : BaseController
     {
         // GET: Admin/AdminAbout
         public ActionResult Index()

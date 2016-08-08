@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.PERMISSION>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.ActionLink("Thêm mới", "CreatePer", "AdminRole", new { @class = "btn btn-success" })
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Group_ID</th>
+                        <th style="text-align:center">Permission_Name</th>
+                        <th style="text-align:center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            <td style="text-align:center;width:100px">@item.PERMISSION_ID</td>
+                            <td style="width:200px">@item.NAME_PERMISSION</td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeletePer", "AdminRole", new { id = item.PERMISSION_ID }, new { @class = "btn btn-danger" })
+                                <br />
+                                @Html.ActionLink("Edit", "EditPer", "AdminRole", new { id = item.PERMISSION_ID }, new { @class = "btn btn-warning" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.panel-body -->
+
+</div>
+<!-- /.panel -->

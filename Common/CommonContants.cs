@@ -9,6 +9,7 @@ namespace ShopOnline5K.Common
     {
         public static string USER_SESSION = "USER_SESSION";
         public static string CartSession = "CartSession";
+        public static string SESSION_ROLE = "SESSION_ROLE";
         public static string MetaSession = "MetaSession";
         public static int QuantityOld = 0;
     }

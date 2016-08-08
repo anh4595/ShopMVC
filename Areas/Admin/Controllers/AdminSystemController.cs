@@ -1,5 +1,6 @@
 ﻿using Model.DAO;
 using Model.EntityFramework;
+using ShopOnline5K.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace ShopOnline5K.Areas.Admin.Controllers
 {
     public class AdminSystemController : BaseController
     {
+
+        [HasRole(PermissionID = "VIEW_USER")]
         // GET: Admin/AdminSystem
         public ActionResult Index()
         {
@@ -17,11 +20,13 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             return View(admin_Dao);
         }
         [HttpGet]
+        [HasRole(PermissionID = "ADD_USER")]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [HasRole(PermissionID = "ADD_USER")]
         public ActionResult Create(ADMIN admin)
         {
             if (ModelState.IsValid)
@@ -39,12 +44,15 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             }
             return View(admin);
         }
+
+        [HasRole(PermissionID = "EDIT_USER")]
         public ActionResult Edit(int id)
         {
             var admin = new AdminDao().ViewDetail(id);
             return View(admin);
         }
         [HttpPost]
+        [HasRole(PermissionID = "EDIT_USER")]
         public ActionResult Edit(ADMIN admin)
         {
             if (ModelState.IsValid)
@@ -67,6 +75,8 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             var result = new AdminDao().ChangeStatus(id);
             return RedirectToAction("Index", "AdminSystem");
         }
+
+        [HasRole(PermissionID = "DELETE_USER")]
         public ActionResult Delete(int id)
         {
             new AdminDao().Delete(id);

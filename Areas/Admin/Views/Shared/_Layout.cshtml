@@ -3,7 +3,6 @@
     var session = (ShopOnline5K.Common.UserLogin)Session[ShopOnline5K.Common.CommonContants.USER_SESSION];
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -298,7 +297,15 @@
                                     <a href="@Url.Action("index","AdminCustomer")">Người dùng</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index","AdminPermission")">Phân quyền</a>
+                                    <a href="#">Phân quyền<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="@Url.Action("index","AdminGroup")">Admin Group</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("index","AdminRole")">Permission</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -308,6 +315,9 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="@Url.Action("index","AdminNews")">Tin tức</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index","AdminFeedBack")">Phản hồi của khách hàng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -325,7 +335,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>Quản lý hóa đơn<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Quản lý hóa đơn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="@Url.Action("index","AdminOrder")">Đơn đặt hàng</a>
@@ -347,15 +357,6 @@
                                 </li>
                                 <li>
                                     <a href="@Url.Action("index", "AdminAbout")">About</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Setting<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="@Url.Action("","Register")">Thêm mới admin</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

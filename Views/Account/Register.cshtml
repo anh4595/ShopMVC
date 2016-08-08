@@ -33,6 +33,7 @@
                                 <h4>ĐĂNG KÝ THÀNH VIÊN</h4>
                                 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
                                 {
+                                    @Html.ValidationSummary(false,"","error")
                                     <div action="" class="aa-login-form">
                                         <label for="">Name<span>*</span></label><br />
                                         @Html.TextBoxFor(model => model.name, new { @type = "text", @placeholder = "Họ tên khách hàng" })
@@ -43,11 +44,11 @@
                                         @Html.ValidationMessageFor(model => model.adress, "", new { @class = "alert alert-danger" })
                                         <br />
                                         <label for="">Phone<span>*</span></label><br />
-                                        @Html.TextBoxFor(model => model.phone, new { @type = "text", @placeholder = "Số điện thoại khách hàng" })
+                                        @Html.TextBoxFor(model => model.phone, new { @type = "number", @placeholder = "Số điện thoại khách hàng", @min="0" })
                                         @Html.ValidationMessageFor(model => model.phone, "", new { @class = "alert alert-danger" })
                                         <br />
                                         <label for="">Email<span>*</span></label><br />
-                                        @Html.TextBoxFor(model => model.email, new { @type = "text", @placeholder = "Email liên hệ" })
+                                        @Html.TextBoxFor(model => model.email, new { @type = "mail", @placeholder = "Email liên hệ" })
                                         @Html.ValidationMessageFor(model => model.email, "", new { @class = "alert alert-danger" })
                                         <br />
                                         <label for="">Username<span>*</span></label><br />

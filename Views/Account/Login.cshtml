@@ -17,6 +17,7 @@
                                 <h4>ĐĂNG NHẬP WEBSITE</h4>
                                 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                                 {
+                                    @Html.ValidationSummary(false,"","error")
                                     <div action="" class="aa-login-form">
                                         <label for="">Username<span>*</span></label><br />
                                         @Html.TextBoxFor(model => model.username, new { @type = "text", @placeholder = "Tài khoản đăng nhập", @autofocus = "autofocus" })

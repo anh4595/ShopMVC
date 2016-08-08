@@ -24,7 +24,7 @@
             var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
-                title: "Cửa Hàng SiDaShop" //Tên hiển thị khi đưa chuột vào địa điểm
+                title: "Cửa Hàng SidaShop" //Tên hiển thị khi đưa chuột vào địa điểm
             });
         }
 
@@ -147,7 +147,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        @Html.TextBoxFor(model => model.phone, new { @type = "text", @placeholder = "Nhập số điện thoại", @class = "form-control" })
+                                                        @Html.TextBoxFor(model => model.phone, new { @type = "number", @placeholder = "Nhập số điện thoại", @class = "form-control",@min="0" })
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

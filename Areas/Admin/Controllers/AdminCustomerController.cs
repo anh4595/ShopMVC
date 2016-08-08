@@ -1,5 +1,6 @@
 ﻿using Model.DAO;
 using Model.EntityFramework;
+using ShopOnline5K.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
 {
     public class AdminCustomerController : BaseController
     {
+        [HasRole(PermissionID = "VIEW_USER")]
         // GET: Admin/AdminCustomer
         public ActionResult Index()
         {
@@ -17,11 +19,13 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             return View(khachhang_Dao);
         }
         [HttpGet]
+        [HasRole(PermissionID = "ADD_USER")]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [HasRole(PermissionID = "ADD_USER")]
         public ActionResult Create(CUSTOMER customer)
         {
             if (ModelState.IsValid)
@@ -39,6 +43,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             }
             return View(customer);
         }
+        [HasRole(PermissionID = "EDIT_USER")]
         public ActionResult Edit(int id)
         {
             var kh = new KhachHangDao().ViewDetail(id);
@@ -47,6 +52,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
 
 
         [HttpPost]
+        [HasRole(PermissionID = "EDIT_USER")]
         public ActionResult Edit(CUSTOMER kh)
         {
             if (ModelState.IsValid)
@@ -65,6 +71,7 @@ namespace ShopOnline5K.Areas.Admin.Controllers
             return View(kh);
         }
 
+        [HasRole(PermissionID = "DELETE_USER")]
         public ActionResult Delete(int id)
         {
             new KhachHangDao().Delete(id);

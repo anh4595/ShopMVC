@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Model.EntityFramework.ROLE>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.ActionLink("Thêm mới", "CreateRole", "AdminPermission", new { @class = "btn btn-success" })
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+
+        <div class="dataTable_wrapper">
+            <table class="table table-striped table-bordered table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Group_ID</th>
+                        <th style="text-align:center">Permission_ID</th>
+                        <th style="text-align:center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            <td style="text-align:center;width:50px">@item.GROUP_ID</td>
+                            <td>@item.PERMISSION_ID</td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeleteRole", "AdminRole", new { id = item.GROUP_ID }, new { @class = "btn btn-danger" })
+                                <br />
+                                @Html.ActionLink("Edit", "EditRole", "AdminRole", new { id = item.GROUP_ID }, new { @class = "btn btn-warning" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.panel-body -->
+
+</div>
+<!-- /.panel -->
+</html>
