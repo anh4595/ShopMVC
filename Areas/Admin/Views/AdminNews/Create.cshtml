@@ -16,7 +16,7 @@
         })
 
         var editor = CKEDITOR.replace("txtContent", {
-            customConfig:'~/Assets/Admin/SbAdmin/js/Plugin/ckeditor/config.js',
+            customConfig:'/Assets/Admin/SbAdmin/js/Plugin/ckeditor/config.js',
         })
     </script>
 }
@@ -87,8 +87,9 @@
 
                                 </div>
 
-                                <div class="form-group input-group">
+                                <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
+                                        @Html.ActionLink("Back to List", "index", "AdminNews", new { @class = "btn btn-primary" })
                                         <input type="submit" value="Create" class="btn btn-success" />
                                     </div>
                                 </div>

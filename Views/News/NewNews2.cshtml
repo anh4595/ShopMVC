@@ -2,7 +2,7 @@
 <div class="tag-cloud">
     @foreach (var item in Model)
     {
-        <a href="@Url.Action("ListTag","News",new { id= item.NEW_ID, tagname=item.TAG})">@item.TAG</a>
+        <a href="@Url.Action("ListTag","News",new { id= item.NEW_ID, tagname=item.TAG})" style="font-family:Arial, Helvetica, sans-serif">@item.TAG</a>
     }
 
 </div>

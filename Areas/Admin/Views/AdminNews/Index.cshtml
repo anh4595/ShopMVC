@@ -4,6 +4,18 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
 @model IEnumerable<Model.EntityFramework.NEWS>
 
 <div id="page-wrapper">
@@ -33,7 +45,6 @@
                                     <th style="text-align:center">Create By</th>
                                     <th style="text-align:center">Tag</th>
                                     <th style="text-align:center">Decription</th>
-                                    <th style="text-align:center">Detail</th>
                                     <th style="text-align:center">Action</th>
                                 </tr>
                             </thead>
@@ -47,12 +58,13 @@
                                         <td class="center" style="text-align:center">@item.CREATEDAY</td>
                                         <td style="text-align:center">@item.CREATEBY</td>
                                         <td style="text-align:center">@item.TAG</td>
-                                        <td style="width:150px">@item.DECRIPTION</td>
-                                        <td>@item.DETAIL</td>
+                                        <td style="width:150px">@Truncate(item.DECRIPTION,100)</td>
                                         <td>
                                             @Html.ActionLink("Delete", "Delete", "AdminNews", new { id = item.NEW_ID }, new { @class = "btn btn-danger" })
                                             <br />
-                                            @Html.ActionLink("Edit", "Edit", "AdminNews", new { id = item.NEW_ID }, new { @class = "btn btn-warning" })
+                                            @Html.ActionLink("Edit", "Edit", "AdminNews", new { id = item.NEW_ID }, new { @class = "btn btn-info" })
+                                            <br />
+                                            @Html.ActionLink("Detail", "Detail", "AdminNews", new { id = item.NEW_ID }, new { @class = "btn btn-warning" })
                                         </td>
                                     </tr>
                                 }

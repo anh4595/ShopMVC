@@ -1,6 +1,18 @@
 ﻿
 @model IEnumerable<Model.EntityFramework.NEWS>
 
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
 @foreach (var item in Model)
 {
     <div class="col-md-4 col-sm-4">
@@ -12,8 +24,8 @@
                 </figcaption>
             </figure>
             <div class="aa-blog-info">
-                <h3 class="aa-blog-title"><a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })">@item.NEW_TITLE</a></h3>
-                <p>@item.DECRIPTION</p>
+                <h3 class="aa-blog-title" style="font-family:Arial, Helvetica, sans-serif"><a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })" title="@item.NEW_TITLE">@Truncate(item.NEW_TITLE,30)</a></h3>
+                <p style="font-family:Arial, Helvetica, sans-serif">@Truncate(item.DECRIPTION,100)</p>
                 <a href="@Url.Action("Chitiet","News",new {id=item.NEW_ID })" class="aa-read-mor-btn">Read more <span class="fa fa-long-arrow-right"></span></a>
             </div>
         </div>

@@ -1,12 +1,12 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿
+@{
+    ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using Model.EntityFramework
 @using PagedList.Mvc;
 @model PagedList.PagedList<PRODUCT>
-
 
 <!-- SCROLL TOP BUTTON -->
 <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
@@ -85,7 +85,7 @@
                     <div class="aa-product-catg-pagination">
                         <nav>
                             <div class="pagination">
-                                @Html.PagedListPager(Model, page => Url.Action("index", new { page = page }))
+                                @Html.PagedListPager(Model, page => Url.Action("Search", new { page = page, keyword = ViewBag.Keyword }))
                             </div>
                         </nav>
                     </div>
@@ -107,6 +107,21 @@
                             @{Html.RenderAction("ListTag", "Product");}
                             @{Html.RenderAction("ListTag1", "Product");}
                         </div>
+                    </div>
+                    <!-- single sidebar -->
+                    <div class="aa-sidebar-widget">
+                        <h3>Shop By Price</h3>
+                        <!-- price range -->
+                        <div class="aa-sidebar-price-range">
+                            <form action="">
+                                <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                                </div>
+                                <span id="skip-value-lower" class="example-val">30.00</span>
+                                <span id="skip-value-upper" class="example-val">100.00</span>
+                                <button class="aa-filter-btn" type="submit">Filter</button>
+                            </form>
+                        </div>
+
                     </div>
                     <!-- single sidebar -->
                     <div class="aa-sidebar-widget">
@@ -132,6 +147,35 @@
                         <div class="aa-recently-views">
                             <ul>
                                 @Html.Action("TopRate", "Product")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- single sidebar -->
+                    <div class="aa-sidebar-widget">
+                        <h3>Top Rated Products</h3>
+                        <div class="aa-recently-views">
+                            <ul>
+                                <li>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
+                                    <div class="aa-cartbox-info">
+                                        <h4><a href="#">Product Name</a></h4>
+                                        <p>1 x $250</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-1.jpg"></a>
+                                    <div class="aa-cartbox-info">
+                                        <h4><a href="#">Product Name</a></h4>
+                                        <p>1 x $250</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
+                                    <div class="aa-cartbox-info">
+                                        <h4><a href="#">Product Name</a></h4>
+                                        <p>1 x $250</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

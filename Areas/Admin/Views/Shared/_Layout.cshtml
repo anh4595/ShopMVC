@@ -244,7 +244,10 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>
-                        @session.userName
+                        @if (session != null)
+                        {
+                            @session.userName
+                        }
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -288,22 +291,22 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Hệ thống<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users"></i> Quản lý người dùng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="@Url.Action("index","AdminSystem")">Quản trị viên</a>
+                                    <a href="@Url.Action("index","AdminSystem")"><i class="fa fa-user fa-fw"></i> Quản trị viên</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index","AdminCustomer")">Người dùng</a>
+                                    <a href="@Url.Action("index","AdminCustomer")"><i class="fa fa-male"></i> Người dùng</a>
                                 </li>
                                 <li>
-                                    <a href="#">Phân quyền<span class="fa arrow"></span></a>
+                                    <a href="#"><i class="fa fa-shield"></i> Phân quyền<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="@Url.Action("index","AdminGroup")">Admin Group</a>
+                                            <a href="@Url.Action("index","AdminGroup")"><i class="fa fa-rebel"></i> Admin group</a>
                                         </li>
                                         <li>
-                                            <a href="@Url.Action("index","AdminRole")">Permission</a>
+                                            <a href="@Url.Action("index","AdminRole")"><i class="fa fa-share-alt"></i> Permission</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -314,49 +317,52 @@
                             <a href="#"><i class="fa fa-comment fa-fw"></i> Tin tức<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="@Url.Action("index","AdminNews")">Tin tức</a>
+                                    <a href="@Url.Action("index","AdminNews")"><i class="fa fa-rss-square"></i> Tin tức</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index","AdminFeedBack")">Phản hồi của khách hàng</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>Quản lý sản phẩm<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="@Url.Action("index","AdminGroupProduct")">Nhóm sản phẩm</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("index", "AdminProduct")">Sản Phẩm</a>
+                                    <a href="@Url.Action("index","AdminFeedBack")"><i class="fa fa-comments-o"></i> Phản hồi của khách hàng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Quản lý hóa đơn<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-indent"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="@Url.Action("index","AdminOrder")">Đơn đặt hàng</a>
+                                    <a href="@Url.Action("index","AdminGroupProduct")"><i class="fa fa-th"></i> Nhóm sản phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index", "AdminOrderDetail")">Chi tiết đơn đặt hàng</a>
+                                    <a href="@Url.Action("index", "AdminProduct")"><i class="fa fa-renren"></i> Sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index", "AdminTagProduct")"><i class="fa fa-tags"></i> Thẻ tag</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>Quản lý chung<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-dollar"></i> Quản lý hóa đơn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="@Url.Action("index","AdminSlide")">Slide</a>
+                                    <a href="@Url.Action("index","AdminOrder")"><i class="fa fa-shopping-cart"></i> Đơn đặt hàng</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index", "AdminFooter")">Footer</a>
+                                    <a href="@Url.Action("index", "AdminOrderDetail")"><i class="fa fa-file-text"></i> Chi tiết đơn đặt hàng</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-codepen"></i> Quản lý chung<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("index","AdminSlide")"><i class="fa fa-sliders"></i> Slide</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("index", "AdminAbout")">About</a>
+                                    <a href="@Url.Action("index", "AdminFooter")"><i class="fa fa-envelope"></i> Footer</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("index", "AdminAbout")"><i class="fa fa-quote-left"></i> About</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

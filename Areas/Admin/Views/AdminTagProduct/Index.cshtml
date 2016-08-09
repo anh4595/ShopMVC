@@ -3,13 +3,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-
-@model IEnumerable<Model.EntityFramework.ADMIN>
+@model IEnumerable<Model.EntityFramework.TAG>
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">DANH SÁCH QUẢN TRỊ VIÊN</h1>
+            <h1 class="page-header">DANH SÁCH THẺ TAG</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -26,13 +25,8 @@
                         <table class="table table-striped table-bordered table-hover" id="myTable">
                             <thead>
                                 <tr>
-                                    <th style="text-align:center">ID</th>
-                                    <th style="text-align:center">Name</th>
-                                    <th style="text-align:center">Address</th>
-                                    <th style="text-align:center">Phone</th>
-                                    <th style="text-align:center">Email</th>
-                                    <th style="text-align:center">Permission</th>
-                                    <th style="text-align:center">Status</th>
+                                    <th style="text-align:center">Tag ID</th>
+                                    <th style="text-align:center">Name Tag</th>
                                     <th style="text-align:center">Action</th>
                                 </tr>
                             </thead>
@@ -40,17 +34,12 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr class="odd gradeX">
-                                        <td style="text-align:center">@item.ADMIN_ID</td>
-                                        <td style="width:200px">@item.NAME</td>
-                                        <td>@item.ADDRESS</td>
-                                        <td style="text-align:center">@item.PHONE</td>
-                                        <td style="text-align:center">@item.EMAIL</td>
-                                        <td style="text-align:center">@item.ADMINGROUP.NAME</td>
-                                        <td style="text-align:center">@item.STATUS</td>
+                                        <td style="text-align:center;width:100px">@item.TAG_ID</td>
+                                        <td style="width:580px">@item.NAME_TAG</td>
                                         <td>
-                                            @Html.ActionLink("Delete", "Delete", "AdminSystem", new { id = item.ADMIN_ID }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("Delete", "Delete", "AdminTagProduct", new { id = item.TAG_ID }, new { @class = "btn btn-danger" })
                                             <br />
-                                            @Html.ActionLink("Edit", "Edit", "AdminSystem", new { id = item.ADMIN_ID }, new { @class = "btn btn-warning" })
+                                            @Html.ActionLink("Edit", "Edit", "AdminTagProduct", new { id = item.TAG_ID }, new { @class = "btn btn-warning" })
                                         </td>
                                     </tr>
                                 }

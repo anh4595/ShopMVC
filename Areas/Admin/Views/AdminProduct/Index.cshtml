@@ -28,10 +28,11 @@
                                 <tr>
                                     <th style="text-align:center">Product ID</th>
                                     <th style="text-align:center">Name Product</th>
+                                    <th style="text-align:center">MetaTitle</th>
                                     <th style="text-align:center">Image</th>
+                                    <th style="text-align:center">Price</th>
                                     <th style="text-align:center">Discount Price</th>
                                     <th style="text-align:center">Create Date</th>
-                                    <th style="text-align:center">Detail</th>
                                     <th style="text-align:center">Status</th>
                                     <th style="text-align:center">Action</th>
                                 </tr>
@@ -42,15 +43,18 @@
                                 <tr class="odd gradeX">
                                     <td style="text-align:center;width:50px">@item.PRODUCT_ID</td>
                                     <td style="width:130px">@item.NAME</td>
+                                    <td>@item.TAG.NAME_TAG</td>
                                     <td style="width:100px"><img style="width:100px;height:100px" src="/Image/HinhSanPham/images/Product/@item.IMAGE_LINK" /></td>
+                                    <td class="center" style="text-align:center">$@item.PRICE</td>
                                     <td class="center" style="text-align:center">$@item.DISCOUNT_PRICE</td>
                                     <td style="text-align:center">@item.CREATED_DATE</td>
-                                    <td>@item.DETAIL</td>
                                     <td style="text-align:center;width:70px">@item.STATUS</td>
                                     <td>
                                         @Html.ActionLink("Delete", "Delete", "AdminProduct", new { id = item.PRODUCT_ID }, new { @class = "btn btn-danger" })
                                         <br />
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.PRODUCT_ID }, new { @class = "btn btn-warning" })
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.PRODUCT_ID }, new { @class = "btn btn-info" })
+                                        <br />
+                                        @Html.ActionLink("Detail", "Detail", "AdminProduct", new { id = item.PRODUCT_ID }, new { @class = "btn btn-warning" })
                                     </td>
                                 </tr>
                                 }

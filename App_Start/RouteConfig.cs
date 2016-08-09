@@ -18,6 +18,14 @@ namespace ShopOnline5K
             namespaces: new[] { "ShopOnline5K.Controllers" }
              );
 
+
+            routes.MapRoute(
+             name: "Search",
+             url: "tim-kiem",
+             defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+             namespaces: new[] { "ShopOnline5K.Controllers" }
+              );
+
             routes.MapRoute(
             name: "Cart",
             url: "gio-hang",
@@ -39,7 +47,6 @@ namespace ShopOnline5K
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
 
         }
     }

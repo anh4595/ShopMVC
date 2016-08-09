@@ -130,5 +130,25 @@ namespace ShopOnline5K.Controllers
             return PartialView(product_Dao);
         }
 
+        public JsonResult ListName(string keyword)
+        {
+            var data = new ProductDao().ListName(keyword);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Search(string keyword, int? page)
+        {
+            ViewBag.Keyword = keyword;
+            int pagesize = 4;
+            //tạo biến số trang
+            int pagenumber = (page ?? 1);
+            var model = new ProductDao().Search(keyword);
+            return View(model.ToPagedList(pagenumber, pagesize));
+        }
+
     }
 }

@@ -7,12 +7,15 @@ using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
 using Model.EntityFramework;
+using ShopOnline5K.Common;
 
 namespace ShopOnline5K.Areas.Admin.Controllers
 {
     public class AdminGroupProductController : BaseController
     {
         // GET: Admin/AdminGroupProduct
+
+        [HasRole(PermissionID = "VIEW_GROUPPRODUCT")]
         public ActionResult Index()
         {
             var group_Dao = new GroupProductDao().ListAll();
@@ -20,11 +23,13 @@ namespace ShopOnline5K.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [HasRole(PermissionID = "ADD_GROUPPRODUCT")]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [HasRole(PermissionID = "ADD_GROUPPRODUCT")]
         public ActionResult Create(GROUPPRODUCT groupproduct)
         {
             if (ModelState.IsValid)
@@ -37,17 +42,19 @@ namespace ShopOnline5K.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("","Thêm mới thất bại");
+                    ModelState.AddModelError("", "Thêm mới thất bại");
                 }
             }
             return View(groupproduct);
         }
+        [HasRole(PermissionID = "EDIT_GROUPPRODUCT")]
         public ActionResult Edit(int id)
         {
             var group_Dao = new GroupProductDao().ViewDetail(id);
             return View(group_Dao);
         }
         [HttpPost]
+        [HasRole(PermissionID = "EDIT_GROUPPRODUCT")]
         public ActionResult Edit(GROUPPRODUCT groupproduct)
         {
             if (ModelState.IsValid)

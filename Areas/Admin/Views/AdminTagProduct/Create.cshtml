@@ -1,22 +1,14 @@
-﻿@model Model.EntityFramework.ABOUT
+﻿@model Model.EntityFramework.TAG
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
-
-@section jsFooter{
-    <script>
-        var editor = CKEDITOR.replace("txtContent", {
-            customConfig: '/Assets/Admin/SbAdmin/js/Plugin/ckeditor/config.js',
-        });
-    </script>
 }
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">SỬA THÔNG TIN GIỚI THIỆU</h1>
+            <h1 class="page-header">THÊM MỚI THẺ TAG</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -28,29 +20,28 @@
                 </div>
                 <div class="panel-body">
                     <div class="row" style="width:70%; margin-left:30px">
-                        @using (Html.BeginForm("Edit", "AdminAbout", FormMethod.Post))
+                        @using (Html.BeginForm("Create","AdminTagProduct",FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
 
                             <div class="form-horizontal">
-
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.HiddenFor(model => model.ID)
 
                                 <div class="form-group input-group">
-                                    <span class="input-group-addon">Detail</span>
-                                    @Html.TextAreaFor(model => model.DETAIL, new { @class = "form-control", @placeholder = "Nội dung mô tả", @type = "text", @id = "txtContent" })
-                                    @Html.ValidationMessageFor(model => model.DETAIL, "", new { @class = "text-danger" })
+                                    <span class="input-group-addon">Name</span>
+                                    @Html.TextBoxFor(model => model.NAME_TAG, new { @class = "form-control", @autofocus = "autofocus", @type = "text", @placeholder = "Nhập tên thẻ tag" })
+                                    @Html.ValidationMessageFor(model => model.NAME_TAG, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
-                                        @Html.ActionLink("Back to List", "index", "AdminAbout", new { @class = "btn btn-primary" })
-                                        <input type="submit" value="Save" class="btn btn-success" />
+                                        @Html.ActionLink("Back to List", "index", "AdminTagProduct", new { @class = "btn btn-primary" })
+                                        <input type="submit" value="Create" class="btn btn-success" />
                                     </div>
                                 </div>
                             </div>
                         }
+
                     </div>
                 </div>
             </div>

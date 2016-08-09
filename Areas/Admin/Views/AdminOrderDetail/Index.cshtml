@@ -26,9 +26,10 @@
                         <table class="table table-striped table-bordered table-hover" id="myTable">
                             <thead>
                                 <tr>
-                                    <th style="text-align:center">OrderDetail ID </th>
-                                    <th style="text-align:center">Order ID </th>
-                                    <th style="text-align:center">Product </th>
+                                    <th style="text-align:center">OrderDetail ID</th>
+                                    <th style="text-align:center">Order ID</th>
+                                    <th style="text-align:center">Customer</th>
+                                    <th style="text-align:center">Product</th>
                                     <th style="text-align:center">Quantity</th>
                                     <th style="text-align:center">Price</th>
                                     <th style="text-align:center">Total</th>
@@ -41,6 +42,7 @@
                                     <tr class="odd gradeX">
                                         <td style="text-align:center">@item.ORDERDETAIL_ID</td>
                                         <td style="text-align:center">@item.ORDER_ID</td>
+                                        <td>@item.ORDER.CUSTOMER.NAME</td>
                                         <td>@item.PRODUCT.NAME</td>
                                         <td style="text-align:center">@item.QUANTITY</td>
                                         <td style="text-align:center">@item.PRICE</td>

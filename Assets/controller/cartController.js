@@ -14,9 +14,9 @@
             var cartList = [];
             $.each(listProduct, function (i, item) {
                 cartList.push({
-                    Quantity: $(item).val(),
-                    Product: {
-                        ID: $(item).data('id')
+                    soluong: $(item).val(),
+                    product: {
+                        PRODUCT_ID: $(item).data('id')
                     }
                 });
             });

@@ -16,7 +16,9 @@
 
 @model List<ShopOnline5K.Models.CartItem>
 
-<script src="~/Assets/controller/cartController.js"></script>
+@section jsFooter{
+    <script src="/Assets/controller/cartController.js"></script>
+}
 
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
@@ -65,14 +67,14 @@
                                                     <td><a class="aa-cart-title" href="#">@item.product.NAME</a></td>
                                                     @* Nếu không có thì nó mặc định giá bằng 0 *@
                                                     <td>$@item.product.DISCOUNT_PRICE.GetValueOrDefault(0).ToString("N0")</td>
-                                                    <td><input class="aa-cart-quantity" type="number" value="@item.soluong"></td>
+                                                    <td><input class="txtQuantity" type="number" value="@item.soluong" data-id="@item.product.PRODUCT_ID"></td>
                                                     <td>$@((item.product.DISCOUNT_PRICE.GetValueOrDefault(0) * item.soluong).ToString("N0"))</td>
                                                 </tr>
                                             }
 
                                             <tr>
                                                 <td colspan="5" style="text-align:right;font-weight:bold; font-size:20px">Tổng tiền</td>
-                                                <td colspan="5" style="text-align:right;font-size:20px;font-weight:bold;color:red">$@tongtien</td>
+                                                <td colspan="5" style="text-align:right;font-size:20px;font-weight:bold;color:red">$@tongtien.ToString("N0")</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="6" class="aa-cart-view-bottom" style="overflow:hidden">

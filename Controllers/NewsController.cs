@@ -4,15 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace ShopOnline5K.Controllers
 {
     public class NewsController : Controller
     {
         // GET: News
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            return View();
+            var new_Dao = new NewsDao().ListAll();
+            int pagesize = 9;
+            int pagenumber = (page ?? 1);
+            return View(new_Dao.ToPagedList(pagenumber, pagesize));
         }
 
         public ActionResult NewNews1()

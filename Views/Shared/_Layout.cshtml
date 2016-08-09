@@ -12,6 +12,7 @@
     <link href="~/Assets/UI/css/bootstrap.css" rel="stylesheet">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="~/Assets/UI/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <link href="~/Assets/UI/css/jquery-ui.css" rel="stylesheet" />
     <!-- Product view slider -->
     <link rel="stylesheet" type="text/css" href="/Assets/UI/css/jquery.simpleLens.css">
     <!-- slick slider -->
@@ -23,11 +24,11 @@
     <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
     <link href="~/Assets/UI/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
-
     <!-- Main style sheet -->
     <link href="~/Assets/UI/css/style.css" rel="stylesheet">
     <link href="~/Assets/Awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Assets/UI/css/hovertop.css" rel="stylesheet" />
+   
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -99,8 +100,8 @@
                             @{Html.RenderAction("HeaderCar", "Home");}
                             <!-- search box -->
                             <div class="aa-search-box">
-                                <form action="">
-                                    <input type="text" name="" id="" placeholder="Nhập từ khóa cần tìm kiếm ...">
+                                <form action="/tim-kiem" method="get">
+                                    <input type="text" name="keyword" id="txtKeyword" placeholder="Nhập từ khóa cần tìm kiếm ...">
                                     <button type="submit"><span class="fa fa-search"></span></button>
                                 </form>
                             </div>
@@ -223,23 +224,26 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="~/Assets/UI/js/bootstrap.js"></script>
+    <script src="/Assets/UI/js/bootstrap.js"></script>
     <!-- SmartMenus jQuery plugin -->
-    <script type="text/javascript" src="~/Assets/UI/js/jquery.smartmenus.js"></script>
+    <script type="text/javascript" src="/Assets/UI/js/jquery.smartmenus.js"></script>
     <!-- SmartMenus jQuery Bootstrap Addon -->
-    <script type="text/javascript" src="~/Assets/UI/js/jquery.smartmenus.bootstrap.js"></script>
+    <script type="text/javascript" src="/Assets/UI/js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="~/Assets/UI/js/jquery-ui.js"></script>
     <!-- To Slider JS -->
-    <script src="~/Assets/UI/js/sequence.js"></script>
-    <script src="~/Assets/UI/js/sequence-theme.modern-slide-in.js"></script>
+    <script src="/Assets/UI/js/sequence.js"></script>
+    <script src="/Assets/UI/js/sequence-theme.modern-slide-in.js"></script>
     <!-- Product view slider -->
     <script type="text/javascript" src="/Assets/UI/js/jquery.simpleGallery.js"></script>
     <script type="text/javascript" src="/Assets/UI/js/jquery.simpleLens.js"></script>
     <!-- slick slider -->
-    <script type="text/javascript" src="~/Assets/UI/js/slick.js"></script>
+    <script type="text/javascript" src="/Assets/UI/js/slick.js"></script>
     <!-- Price picker slider -->
-    <script type="text/javascript" src="~/Assets/UI/js/nouislider.js"></script>
+    <script type="text/javascript" src="/Assets/UI/js/nouislider.js"></script>
     <!-- Custom js -->
-    <script src="~/Assets/UI/js/custom.js"></script>
 
+    <script src="/Assets/UI/js/custom.js"></script>
+    <script src="/Assets/controller/baseController.js"></script>
+    @RenderSection("jsFooter", required: false)
 </body>
 </html>

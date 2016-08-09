@@ -33,10 +33,22 @@ namespace ShopOnline5K.Common
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            filterContext.Result = new ViewResult
+            var session = (UserLogin)HttpContext.Current.Session[Common.CommonContants.USER_SESSION];
+            if (session == null)
             {
-                ViewName = "~/Areas/Admin/Views/Shared/_401.cshtml"
-            };
+                filterContext.Result = new ViewResult
+                {
+                    ViewName = "~/Areas/Admin/Views/Login/index.cshtml"
+                };
+            }
+            else
+            {
+                filterContext.Result = new ViewResult
+                {
+                    ViewName = "~/Areas/Admin/Views/Shared/_401.cshtml"
+                };
+            }
+           
         }
         private List<string> GetCredentialByLoggedInUser(string userName)
         {

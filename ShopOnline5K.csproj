@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminRoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSystemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminTagProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
@@ -1684,11 +1685,13 @@
     <Content Include="Assets\Awesome\css\font-awesome.css" />
     <Content Include="Assets\Awesome\css\font-awesome.min.css" />
     <Content Include="Assets\Awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\controller\baseController.js" />
     <Content Include="Assets\controller\cartController.js" />
     <Content Include="Assets\controller\neworder.html" />
     <Content Include="Assets\UI\css\bootstrap.css" />
     <Content Include="Assets\UI\css\font-awesome.css" />
     <Content Include="Assets\UI\css\hovertop.css" />
+    <Content Include="Assets\UI\css\jquery-ui.css" />
     <Content Include="Assets\UI\css\jquery.simpleLens.css" />
     <Content Include="Assets\UI\css\jquery.smartmenus.bootstrap.css" />
     <Content Include="Assets\UI\css\nouislider.css" />
@@ -1710,6 +1713,7 @@
     <Content Include="Assets\UI\js\bootstrap.js" />
     <Content Include="Assets\UI\js\contactController.js" />
     <Content Include="Assets\UI\js\custom.js" />
+    <Content Include="Assets\UI\js\jquery-ui.js" />
     <Content Include="Assets\UI\js\jquery.simpleGallery.js" />
     <Content Include="Assets\UI\js\jquery.simpleLens.js" />
     <Content Include="Assets\UI\js\jquery.smartmenus.bootstrap.js" />
@@ -2294,6 +2298,13 @@
     <Content Include="Areas\Admin\Views\AdminGroup\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminGroup\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminGroup\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRole\CreateRole.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRole\EditRole.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagProduct\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagProduct\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTagProduct\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminNews\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminProduct\Detail.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2365,6 +2376,7 @@
     <Content Include="Views\Product\Top3Chay.cshtml" />
     <Content Include="Views\Home\Slide.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

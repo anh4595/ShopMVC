@@ -1,0 +1,50 @@
+﻿@model Model.EntityFramework.NEWS
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">THÔNG TIN CHI TIẾT TIN TỨC</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="aa-blog-content aa-blog-details">
+            <article class="aa-blog-content-single">
+                <h2 style="text-align:center;color:blue;font-size:45px;font-weight:bold">@Model.NEW_TITLE</h2>
+                <div class="aa-article-bottom">
+                    <div class="aa-post-author">
+                        Posted By: <a href="#">@Model.CREATEBY</a>
+                    </div>
+                    <div class="aa-post-date">
+                        Date Post: @Model.CREATEDAY
+                    </div>
+                </div>
+                <p>@Html.Raw(@Model.DETAIL)</p>
+
+                <div class="blog-single-bottom">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <div class="blog-single-tag">
+                                <span>Tags:</span>
+                                <a href="@Url.Action("ListTag","News",new { id= Model.NEW_ID, tagname=Model.TAG})">@Model.TAG</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <p style="padding:20px 0">
+                @Html.ActionLink("Edit", "Edit", "AdminNews", new { id = @Model.NEW_ID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Back to List", "index", "AdminNews", new { @class = "btn btn-primary" })
+            </p>
+
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->
